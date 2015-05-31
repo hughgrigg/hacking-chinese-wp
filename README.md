@@ -4,7 +4,7 @@ Hacking Chinese WordPress Development
 Install dependencies:
 
 ```bash
-sudo apt-get install virtualbox virtualbox-dkms vagrant npm bower
+sudo apt-get install virtualbox virtualbox-dkms vagrant npm
 ```
 
 Add `192.168.33.10  hackingchinese.dev` to your hosts file:
@@ -23,6 +23,15 @@ You'll need these files that aren't in the repo:
  provision.sh`.
  - Recent WordPress uploads from Hacking Chinese. Put these in
  `vagrant/hc/uploads/2015`
+
+Then run the following:
+
+```bash
+npm install -g bower gulp
+npm install
+bower install
+gulp style
+```
 
 Finally, run:
 

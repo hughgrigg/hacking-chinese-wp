@@ -17,3 +17,5 @@ sync/
 .vagrant/
 .idea/
 hc/
+node_modules/
+bower_components/

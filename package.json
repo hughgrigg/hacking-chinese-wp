@@ -1,0 +1,25 @@
+{
+  "name": "hacking-chinese-wp",
+  "version": "0.0.0",
+  "description": "Hacking Chinese WordPress Development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughgrigg/hacking-chinese-wp.git"
+  },
+  "author": "Hugh Grigg",
+  "license": "proprietary",
+  "bugs": {
+    "url": "https://github.com/hughgrigg/hacking-chinese-wp/issues"
+  },
+  "devDependencies": {
+    "gulp-sourcemaps": "~1.5.2",
+    "gulp-minify-css": "~1.1.3",
+    "gulp-autoprefixer": "~2.3.0",
+    "gulp-sass": "~2.0.1",
+    "gulp": "~3.8.11"
+  }
+}
