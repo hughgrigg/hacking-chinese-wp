@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-echo "\n\n-----Starting user provisioning-----\n\n"
-
 # Oh My ZSH
 if [ ! -d '/home/vagrant/.oh-my-zsh' ]; then
   wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
@@ -18,5 +16,3 @@ ln -s /home/vagrant/sync/wp-content/themes/hc-2015 wordpress/wp-content/themes/h
 
 rm -rf wordpress/wp-content/uploads/2015
 ln -s /home/vagrant/sync/hc/uploads wordpress/wp-content/uploads
-
-echo "\n\n-----Finished user provisioning-----\n\n"
