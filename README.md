@@ -27,7 +27,7 @@ You'll need these files that aren't in the repo:
 Then run the following:
 
 ```bash
-npm install -g bower gulp
+sudo npm install -g bower gulp
 npm install
 bower install
 gulp style
