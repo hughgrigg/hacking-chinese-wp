@@ -1,0 +1,18 @@
+article {
+  color: $text-colour;
+  box-sizing: border-box;
+  font-family: $body-font;
+  line-height: 1.6;
+  margin: auto;
+  max-width: 42em;
+  padding: .7em;
+  width: 100%;
+
+  @include breakpoint(lg-up) {
+    padding: 0;
+  }
+
+  @include breakpoint(xl) {
+    margin: 0;
+  }
+}

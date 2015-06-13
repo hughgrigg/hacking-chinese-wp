@@ -1,0 +1,33 @@
+body {
+  background: #fff;
+  box-sizing: border-box;
+  color: $text-colour;
+  font-size: 16px;
+  overflow-x: hidden;
+
+  @include breakpoint(sm) {
+    font-size: 17px;
+  }
+
+  @include breakpoint(md) {
+    font-size: 18px;
+  }
+
+  @include breakpoint(lg-up) {
+    font-size: 19px;
+  }
+
+  @include breakpoint(xl) {
+    padding: 0 1em;
+  }
+}
+
+html,
+button,
+input,
+select,
+textarea,
+p,
+.pure-g {
+  font-family: $body-font;
+}

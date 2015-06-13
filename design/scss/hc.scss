@@ -1,0 +1,20 @@
+/*
+Theme Name: Hacking Chinese 2015
+Theme URI: https://github.com/hughgrigg/hacking-chinese-wp
+Author: Hugh Grigg
+Author URI: http://www.hughgrigg.com/
+Description: Custom theme for Hacking Chinese
+Version: 0.1
+Text Domain: hackingchinese
+*/
+
+@import 'vendor/fonts',
+'config/mixins',
+'config/variables',
+'base/body',
+'base/article',
+'base/div',
+'base/h',
+'layout/page',
+'layout/site-header',
+'layout/layout';

@@ -1,0 +1,44 @@
+@mixin breakpoint($point) {
+
+  $sm-bp:  568;
+  $md-bp:  768;
+  $lg-bp: 1024;
+  $xl-bp: 1280;
+
+  $bp-queries: (
+      sm: '(min-width: ' + $sm-bp + 'px)',
+      md: '(min-width: ' + ($sm-bp + 1) + 'px) and (max-width: ' + $md-bp + 'px)',
+      lg: '(min-width: ' + ($md-bp + 1) + 'px) and (max-width: ' + $lg-bp + 'px)',
+      xl: '(min-width: ' + $lg-bp + 'px)',
+
+      sm-up: '(min-width: ' + $sm-bp + 'px)',
+      md-up: '(min-width: ' + $md-bp + 'px)',
+      lg-up: '(min-width: ' + $lg-bp + 'px)',
+
+      md-down: '(max-width: ' + $md-bp + 'px)'
+  );
+
+  @media #{map-get($bp-queries, $point)} { @content; }
+}
+
+@mixin header-sizing($base, $factor) {
+  h5 {
+    font-size: $base * $factor;
+  }
+
+  h4 {
+    font-size: $base * ($factor * $factor);
+  }
+
+  h3 {
+    font-size: $base * ($factor * $factor * $factor);
+  }
+
+  h2 {
+    font-size: $base * ($factor * $factor * $factor * $factor);
+  }
+
+  h1 {
+    font-size: $base * ($factor * $factor * $factor * $factor * $factor);
+  }
+}

@@ -1,0 +1,80 @@
+.site-header {
+  background: $brand-colour;
+  color: #fff;
+  display: block;
+  padding: .5em;
+  text-align: center;
+
+  @include breakpoint(sm-up) {
+    text-align: left;
+  }
+
+  @include breakpoint(lg-up) {
+    color: lighten($text-colour, 10%);
+
+    &:visited {
+      color: lighten($text-colour, 10%);
+    }
+
+    &:hover,
+    &:visited:hover {
+      color: $brand-colour;
+    }
+  }
+
+  @include breakpoint(xl) {
+    background: transparent;
+  }
+}
+
+.header-logo {
+  font-size: 3em;
+  margin: .2em 0;
+  text-align: center;
+
+  @include breakpoint(sm) {
+    font-size: 4em;
+  }
+
+  @include breakpoint(md-up) {
+    font-size: 5em;
+  }
+
+  @include breakpoint(lg-up) {
+    color: $brand-colour;
+    font-size: 6em;
+    text-align: left;
+  }
+}
+
+.site-titles {
+  @include breakpoint(sm) {
+    padding: .9em 0 0 .9em;
+  }
+
+  @include breakpoint(md-up) {
+    padding: 1.25em 0 0 2.3em;
+  }
+
+  @include breakpoint(lg-up) {
+    padding-top: 2em;
+  }
+
+  @include breakpoint(xl) {
+    padding-left: 1em;
+  }
+}
+
+.site-title {
+  margin: auto;
+}
+
+.site-subtitle {
+  display: none;
+  font-size: 1.5em;
+  margin: auto;
+
+  @include breakpoint(sm-up) {
+    display: block;
+  }
+}
