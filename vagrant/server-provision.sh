@@ -9,6 +9,8 @@ DBPASSWD=hackingchinese
 DBPREFIX=wp_hc_
 DBFILE=hackingchinese__wp_hc_20150521_904.sql
 
+sudo add-apt-repository ppa:ondrej/php5-5.6 -y
+
 apt-get -y install curl build-essential python-software-properties
 
 echo "mysql-server mysql-server/root_password password ${DBPASSWD}" | debconf-set-selections
@@ -19,6 +21,23 @@ mysql -uroot -p${DBPASSWD} -e "CREATE DATABASE ${DBNAME}"
 mysql -uroot -p${DBPASSWD} -e "grant all privileges on ${DBNAME}.* to '${DBUSER}'@'localhost' identified by '${DBPASSWD}'"
 
 apt-get -y install php5 apache2 libapache2-mod-php5 php5-curl php5-gd php5-mcrypt php5-mysql php-apc
+apt-get -y install php5-dev php5-xdebug
+
+#touch /etc/apache2/httpd.conf
+#mkdir -p /etc/apache2/conf.d/
+
+XDEBUGSO=$(find / -name 'xdebug.so' 2> /dev/null)
+echo "zend_extension=\"${XDEBUGSO}\"" >> /etc/php5/apache2/php.ini
+cat > /etc/php5/apache2/conf.d/20-xdebug.ini <<EOF
+zend_extension=xdebug.so
+
+xdebug.default_enable=1
+xdebug.extended_info=1
+xdebug.force_display_errors=1
+xdebug.remote_enable=1
+xdebug.remote_connect_back=1
+xdebug.remote_host=192.168.33.10
+EOF
 
 chmod +w /etc/apache2/apache2.conf
 
