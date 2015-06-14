@@ -1,0 +1,11 @@
+%layout {
+  box-sizing: border-box;
+  margin: auto;
+  max-width: $page-width;
+  padding: .5em 1em;
+}
+
+.layout {
+  @extend %layout;
+  padding: 0;
+}

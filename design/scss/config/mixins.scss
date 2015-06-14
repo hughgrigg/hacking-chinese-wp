@@ -6,16 +6,16 @@
   $xl-bp: 1280;
 
   $bp-queries: (
-      sm: '(min-width: ' + $sm-bp + 'px)',
-      md: '(min-width: ' + ($sm-bp + 1) + 'px) and (max-width: ' + $md-bp + 'px)',
-      lg: '(min-width: ' + ($md-bp + 1) + 'px) and (max-width: ' + $lg-bp + 'px)',
-      xl: '(min-width: ' + $lg-bp + 'px)',
+      sm: '(min-width: ' + $sm-bp + 'px) and (max-width: ' + ($md-bp - 1) + 'px)',
+      md: '(min-width: ' + $md-bp + 'px) and (max-width: ' + ($lg-bp - 1) + 'px)',
+      lg: '(min-width: ' + $lg-bp + 'px) and (max-width: ' + ($xl-bp - 1) + 'px)',
+      xl: '(min-width: ' + $xl-bp + 'px)',
 
       sm-up: '(min-width: ' + $sm-bp + 'px)',
       md-up: '(min-width: ' + $md-bp + 'px)',
       lg-up: '(min-width: ' + $lg-bp + 'px)',
 
-      md-down: '(max-width: ' + $md-bp + 'px)'
+      md-down: '(max-width: ' + ($lg-bp - 1) + 'px)'
   );
 
   @media #{map-get($bp-queries, $point)} { @content; }

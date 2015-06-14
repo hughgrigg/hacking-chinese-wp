@@ -1,15 +1,21 @@
 .site-header {
+  @extend %layout;
+
   background: $brand-colour;
   color: #fff;
   display: block;
-  padding: .5em;
+  margin: auto;
+  max-width: $page-width;
   text-align: center;
+
+  transition: color .5s ease, background .5s ease;
 
   @include breakpoint(sm-up) {
     text-align: left;
   }
 
   @include breakpoint(lg-up) {
+    background: transparent;
     color: lighten($text-colour, 10%);
 
     &:visited {
@@ -20,10 +26,6 @@
     &:visited:hover {
       color: $brand-colour;
     }
-  }
-
-  @include breakpoint(xl) {
-    background: transparent;
   }
 }
 
@@ -57,7 +59,7 @@
   }
 
   @include breakpoint(lg-up) {
-    padding-top: 2em;
+    padding-top: 1.9em;
   }
 
   @include breakpoint(xl) {

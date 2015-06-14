@@ -1,0 +1,10 @@
+%inline-list {
+  list-style-type: none;
+  margin: auto;
+  max-width: $page-width;
+  padding: 0;
+
+  > li {
+    display: inline-block;
+  }
+}
