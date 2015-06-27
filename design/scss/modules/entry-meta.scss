@@ -1,0 +1,17 @@
+.entry-meta {
+  @extend %inline-list;
+
+  margin: 1em 0;
+
+  > li {
+    border-right: 1px solid darken($border-colour, 20%);
+    margin-right: 1em;
+    padding-right: 1em;
+
+    &:last-child {
+      border-right: 0;
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+}

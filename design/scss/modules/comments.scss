@@ -1,0 +1,84 @@
+.comments {
+  @extend %layout;
+  font-size: 90%;
+  padding: 0;
+}
+
+.comments-list {
+  font-family: $headline-font;
+}
+
+.comments-list,
+.children {
+  list-style-type: none;
+  padding: 0;
+
+  @include breakpoint(md-up) {
+    list-style-type: cjk-ideographic;
+    padding-left: 2em;
+  }
+}
+
+.children > .comment {
+  &:first-child {
+    list-style-type: none;
+  }
+}
+
+.comment,
+.pingback {
+  margin: 1.2em 0;
+}
+
+.comment {
+  background: rgba(200, 200, 200, .2);
+  line-height: 1.6;
+  padding: 1em;
+  position: relative;
+}
+
+.pingback {
+  color: lighten($text-colour, 25%);
+  font-size: 90%;
+}
+
+.comment-meta {
+  float: right;
+  font-size: smaller;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  > a {
+    background: lighten(desaturate($brand-colour, 30%), 25%);
+    color: #fff;
+    display: block;
+    padding: .3em;
+    text-decoration: none;
+
+    &:hover {
+      background: $brand-colour;
+    }
+  }
+}
+
+.comment-author {
+  clear: both;
+  font-size: 110%;
+
+  > .avatar {
+    border-radius: 50%;
+    display: inline;
+    margin: .3em;
+  }
+}
+
+.comment-reply-link {
+  &::after {
+    content: ' »';
+  }
+}
+
+.comment-field {
+  width: 100%;
+}

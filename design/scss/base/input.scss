@@ -1,0 +1,10 @@
+input,
+textarea {
+  font-family: 'Droid Sans', 'Open Sans', sans-serif;
+  font-size: larger;
+  width: 100%;
+
+  @include breakpoint(md-up) {
+    width: auto;
+  }
+}

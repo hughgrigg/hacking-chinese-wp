@@ -5,6 +5,7 @@ article {
   line-height: 1.6;
   margin: auto;
   max-width: 42em;
+  padding-bottom: 2em;
   width: 100%;
 
   @include breakpoint(xl) {

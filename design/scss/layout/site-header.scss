@@ -10,6 +10,10 @@
 
   transition: color .5s ease, background .5s ease;
 
+  &:visited {
+    color: #fff;
+  }
+
   @include breakpoint(sm-up) {
     text-align: left;
   }

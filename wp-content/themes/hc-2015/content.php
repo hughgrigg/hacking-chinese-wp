@@ -43,6 +43,21 @@
     ?>
 
     <footer class="entry-footer">
+
+        <ul class="entry-meta">
+            <li><?php the_author_link(); ?></li>
+            <li>
+                <a href="<?php echo get_month_link('', ''); ?>">
+                    <?php the_time('l, F jS, Y') ?>
+                </a>
+            </li>
+            <li>
+                <a href="<?php comments_link(); ?>">
+                    <?php comments_number('No comments', 'One comment', '% comments'); ?>
+                </a>
+            </li>
+        </ul>
+
         <?php edit_post_link( __( 'Edit', 'hackingchinese' ), '<span class="edit-link">', '</span>'); ?>
     </footer>
 

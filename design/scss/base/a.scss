@@ -1,3 +1,14 @@
 a {
+  color: $brand-colour;
+  font-weight: bolder;
   transition: color .5s ease, background .5s ease;
+
+  &:visited {
+    color: darken($brand-colour, 15%);
+  }
+
+  &:hover,
+  &:visited:hover {
+    color: lighten($brand-colour, 20%);
+  }
 }
