@@ -13,7 +13,9 @@
     </div>
 
     <aside class="sidebar pure-u-1 pure-u-lg-1-4 pure-u-xl-1-3">
-        <h2>Sidebar</h2>
+        <ul class="widgets">
+            <?php dynamic_sidebar(HC_2015_RIGHT_SIDEBAR); ?>
+        </ul>
     </aside>
 
 </div>

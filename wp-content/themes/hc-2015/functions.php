@@ -1,5 +1,7 @@
 <?php
 
+const HC_2015_RIGHT_SIDEBAR = 'right-sidebar';
+
 function hc2015_scripts() {
     wp_enqueue_style('hc2015-style', get_stylesheet_uri());
 }
@@ -35,3 +37,15 @@ function hc2015_comment_field() {
     include get_template_directory() . "/partials/comment-form/comment.php";
     return ob_get_clean();
 }
+
+// Register hc2015 sidebar
+register_sidebar(array(
+    'name'          => 'Right Sidebar',
+    'id'            => HC_2015_RIGHT_SIDEBAR,
+    'description'   => '',
+    'class'         => '',
+    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'after_widget'  => "</li>\n",
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => "</h2>\n",
+));

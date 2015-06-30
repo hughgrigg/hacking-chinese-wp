@@ -1,3 +1,19 @@
 .sidebar {
   @extend %layout;
 }
+
+.widgets {
+  list-style-type: none;
+  padding: 0;
+}
+
+.widget {
+  color: lighten($text-colour, 15%);
+  font-family: $body-font;
+  font-size: 90%;
+  margin-bottom: 2em;
+}
+
+.widget-title {
+  font-size: 1.7em;
+}

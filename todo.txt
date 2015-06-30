@@ -1,3 +1,4 @@
-(A) Sidebar
+(A) Footer
+(A) Home page / articles page
 (B) Archive pages
 (C) 404 page
