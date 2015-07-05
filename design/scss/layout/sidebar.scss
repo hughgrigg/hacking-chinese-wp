@@ -19,8 +19,9 @@
 
 .widget {
   color: lighten($text-colour, 15%);
-  font-family: $body-font;
+  font-family: $headline-font;
   font-size: 85%;
+  line-height: $content-line-height;
   margin-bottom: 2em;
 }
 
