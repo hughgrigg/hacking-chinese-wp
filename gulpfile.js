@@ -15,6 +15,8 @@ var
   replace    = require('gulp-replace'),
   rename     = require('gulp-rename'),
 
+  zip        = require('gulp-zip'),
+
   livereload = require('gulp-livereload');
 
 gulp.task('style', function() {
@@ -42,7 +44,7 @@ gulp.task('style', function() {
 });
 
 gulp.task('import', function() {
-  gulp.src('./import/icomoon.zip')
+  return gulp.src('./import/icomoon.zip')
     .pipe(unzip())
     .pipe(save('before-style-filter'))
     .pipe(filter('style.css'))
@@ -52,6 +54,12 @@ gulp.task('import', function() {
     .pipe(save.restore('before-style-filter'))
     .pipe(filter('fonts/*.*'))
     .pipe(gulp.dest('./wp-content/themes/hc-2015/'));
+});
+
+gulp.task('export', ['style'], function() {
+  return gulp.src('./wp-content/themes/**/*')
+    .pipe(zip('hc2015-wp-theme-build-' + new Date().toISOString() + '.zip'))
+    .pipe(gulp.dest('./export/'));
 });
 
 gulp.task('watch', function() {

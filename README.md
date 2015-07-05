@@ -1,6 +1,19 @@
 Hacking Chinese WordPress Development
 =====================================
 
+## Building the theme
+
+The following commands will export the theme to a zip archive in the `export/` directory.
+
+```bash
+sudo npm install -g bower gulp
+npm install
+bower install
+gulp export
+```
+
+## Running the development server
+
 Install dependencies:
 
 ```bash
@@ -27,9 +40,6 @@ You'll need these files that aren't in the repo:
 Then run the following:
 
 ```bash
-sudo npm install -g bower gulp
-npm install
-bower install
 gulp style
 ```
 
