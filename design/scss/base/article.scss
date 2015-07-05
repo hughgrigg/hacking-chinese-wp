@@ -11,4 +11,8 @@ article {
   @include breakpoint(xl) {
     margin: 0;
   }
+
+  img {
+    margin: (1em * $content-line-height) auto;
+  }
 }

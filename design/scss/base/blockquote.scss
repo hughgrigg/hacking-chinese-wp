@@ -1,0 +1,14 @@
+blockquote {
+  border-left: .5em solid lighten($text-colour, 65%);
+  margin: auto;
+  padding: .2em 0 .2em 1.7em;
+
+  @include breakpoint(sm) {
+    padding-left: .9em;
+  }
+
+  > p {
+    font-family: 'Droid Sans', sans-serif;
+    font-style: italic;
+  }
+}

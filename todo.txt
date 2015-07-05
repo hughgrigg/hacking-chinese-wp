@@ -1,5 +1,4 @@
-(A) Post images
-(B) Archive pages
+(A) Archive pages
 (B) Taxonomies on posts
 (C) 404 page
 (C) Search page
