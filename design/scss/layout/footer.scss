@@ -1,0 +1,28 @@
+.footer {
+  background: $text-colour;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+.footer-widget {
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+
+  @include breakpoint(md-up) {
+    display: inline-block;
+  }
+
+  @include breakpoint(md) {
+    width: 49%;
+  }
+
+  @include breakpoint(lg-up) {
+    width: 32%;
+  }
+
+  a {
+    color: #fff;
+  }
+}

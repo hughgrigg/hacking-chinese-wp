@@ -1,6 +1,7 @@
 <?php
 
 const HC_2015_RIGHT_SIDEBAR = 'right-sidebar';
+const HC_2015_FOOTER_WIDGETS = 'footer-widgets';
 
 function hc2015_scripts() {
     wp_enqueue_style('hc2015-style', get_stylesheet_uri());
@@ -44,7 +45,19 @@ register_sidebar(array(
     'id'            => HC_2015_RIGHT_SIDEBAR,
     'description'   => '',
     'class'         => '',
-    'before_widget' => '<li id="%1$s" class="widget %2$s">',
+    'before_widget' => '<li id="%1$s" class="%2$s widget">',
+    'after_widget'  => "</li>\n",
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => "</h2>\n",
+));
+
+// Register hc2015 footer widgets
+register_sidebar(array(
+    'name'          => 'Footer Widgets',
+    'id'            => HC_2015_FOOTER_WIDGETS,
+    'description'   => '',
+    'class'         => '',
+    'before_widget' => '<li id="%1$s" class="%2$s widget footer-widget">',
     'after_widget'  => "</li>\n",
     'before_title'  => '<h2 class="widget-title">',
     'after_title'   => "</h2>\n",
