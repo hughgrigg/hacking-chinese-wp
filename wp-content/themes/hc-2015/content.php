@@ -35,7 +35,7 @@
         <ul class="entry-meta">
             <li><?php the_author_link(); ?></li>
             <li>
-                <a href="<?php echo get_month_link('', ''); ?>">
+                <a href="<?php echo get_month_link(get_the_time('Y'), get_the_time('m')); ?>">
                     <?php the_time('l, F jS, Y') ?>
                 </a>
             </li>
