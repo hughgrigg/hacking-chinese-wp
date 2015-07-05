@@ -4,11 +4,11 @@ a {
   transition: color .5s ease, background .5s ease;
 
   &:visited {
-    color: darken($brand-colour, 15%);
+    color: darken($brand-colour, 17%);
   }
 
   &:hover,
   &:visited:hover {
-    color: lighten($brand-colour, 20%);
+    color: lighten($brand-colour, 23%);
   }
 }

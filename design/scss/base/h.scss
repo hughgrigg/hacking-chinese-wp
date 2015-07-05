@@ -6,6 +6,7 @@ h5,
 h6 {
   font-family: $headline-font;
   font-weight: normal;
+  margin: 1.5em 0 .5em;
 }
 
 @include header-sizing(1.3em, 1.05);

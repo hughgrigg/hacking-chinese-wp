@@ -2,7 +2,7 @@ article {
   box-sizing: border-box;
   color: $text-colour;
   font-family: $body-font;
-  line-height: 1.6;
+  line-height: $content-line-height;
   margin: auto;
   max-width: 42em;
   padding-bottom: 2em;

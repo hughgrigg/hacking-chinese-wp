@@ -1,3 +1,7 @@
 .content {
   @extend %layout;
+
+  @include breakpoint(xl) {
+    padding-left: .5em;
+  }
 }

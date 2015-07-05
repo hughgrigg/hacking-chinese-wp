@@ -1,6 +1,5 @@
-(A) Home page / articles page
-(B) Split out template files
-(B) Post images
+(A) Post images
 (B) Archive pages
+(B) Taxonomies on posts
 (C) 404 page
 (C) Search page

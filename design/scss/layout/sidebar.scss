@@ -1,5 +1,15 @@
 .sidebar {
   @extend %layout;
+
+  background: darken($border-colour, 5%);
+
+  @include breakpoint(lg-up) {
+    background: none;
+  }
+
+  @include breakpoint(xl) {
+    padding: 1em 0 1em 2em;
+  }
 }
 
 .widgets {
@@ -10,7 +20,7 @@
 .widget {
   color: lighten($text-colour, 15%);
   font-family: $body-font;
-  font-size: 90%;
+  font-size: 85%;
   margin-bottom: 2em;
 }
 

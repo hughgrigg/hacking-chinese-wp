@@ -1,0 +1,15 @@
+.pagination {
+  font-family: $headline-font;
+  margin: 1.7em auto;
+  text-align: center;
+}
+
+.page-numbers {
+  display: block;
+  margin: .5em auto;
+
+  @include breakpoint(md-up) {
+    display: inline-block;
+    margin: 0 .5em;
+  }
+}

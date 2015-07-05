@@ -1,0 +1,21 @@
+.post-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.post-list-item {
+  line-height: $content-line-height;
+  margin-bottom: 1.7em;
+}
+
+.post-list-title {
+  font-size: 1.5em;
+}
+
+.post-list-thumbnail {
+  text-align: center;
+
+  @include breakpoint(sm-up) {
+    padding-top: 1.1em;
+  }
+}
