@@ -1,4 +1,3 @@
-(A) Archive pages
-(B) Taxonomies on posts
+(A) Taxonomies on posts
+(B) Search page
 (C) 404 page
-(C) Search page

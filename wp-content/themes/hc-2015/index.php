@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
         <h1 class="entry-title">
-            <?php wp_title(''); ?>
-            <?php if (get_query_var('paged') > 1): ?>
+            <?php get_template_part('partials/index-title');
+
+            if (get_query_var('paged') > 1): ?>
                 <small class="title-note">Page <?php echo get_query_var('paged') ?></small>
             <?php endif ?>
         </h1>
