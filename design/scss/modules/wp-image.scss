@@ -1,0 +1,18 @@
+.alignleft {
+  @include breakpoint(md-up) {
+    float: left;
+    margin: 1em;
+  }
+}
+
+.alignright {
+  @include breakpoint(md-up) {
+    float: right;
+    margin: 1em;
+  }
+}
+
+.aligncenter {
+  float: none;
+  margin: auto;
+}

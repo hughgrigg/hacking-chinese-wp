@@ -11,6 +11,9 @@
       lg: '(min-width: ' + $lg-bp + 'px) and (max-width: ' + ($xl-bp - 1) + 'px)',
       xl: '(min-width: ' + $xl-bp + 'px)',
 
+      sm-dn: '(max-width: ' + ($md-bp - 1) + 'px)',
+      md-dn: '(max-width: ' + ($lg-bp - 1) + 'px)',
+
       sm-up: '(min-width: ' + $sm-bp + 'px)',
       md-up: '(min-width: ' + $md-bp + 'px)',
       lg-up: '(min-width: ' + $lg-bp + 'px)',
