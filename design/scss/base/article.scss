@@ -15,4 +15,8 @@ article {
   img {
     margin: (1em * $content-line-height) auto;
   }
+
+  ol, ul {
+    line-height: $content-line-height * 1.2;
+  }
 }
