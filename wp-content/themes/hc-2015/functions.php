@@ -3,6 +3,9 @@
 const HC_2015_RIGHT_SIDEBAR = 'right-sidebar';
 const HC_2015_FOOTER_WIDGETS = 'footer-widgets';
 
+// Load required files
+require __DIR__ . '/widgets/SocialIcons.php';
+
 function hc2015_scripts() {
     wp_enqueue_style('hc2015-style', get_stylesheet_uri());
 }
@@ -51,7 +54,7 @@ register_sidebar(array(
     'after_title'   => "</h2>\n",
 ));
 
-// Register hc2015 footer widgets
+// Register hc2015 footer
 register_sidebar(array(
     'name'          => 'Footer Widgets',
     'id'            => HC_2015_FOOTER_WIDGETS,
@@ -62,3 +65,11 @@ register_sidebar(array(
     'before_title'  => '<h2 class="widget-title">',
     'after_title'   => "</h2>\n",
 ));
+
+// Register hc2015 widgets
+add_action('widgets_init', function(){
+    register_widget('HC2015\SocialIcons');
+});
+
+// Enable featured images
+add_theme_support('post-thumbnails');

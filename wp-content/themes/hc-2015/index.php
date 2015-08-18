@@ -1,4 +1,14 @@
-<?php get_header(); ?>
+<?php
+
+get_header();
+get_template_part('partials/navigation');
+get_template_part('partials/layout-standard');
+
+if ( function_exists('yoast_breadcrumb') ) {
+    yoast_breadcrumb('<p id="breadcrumbs" class="breadcrumbs">','</p>');
+}
+
+?>
 
         <h1 class="entry-title">
             <?php get_template_part('partials/index-title');
@@ -25,13 +35,14 @@
 
     </div>
 
-    <aside class="sidebar pure-u-1 pure-u-lg-1-4 pure-u-xl-1-3">
-        <ul class="widgets">
-            <?php dynamic_sidebar(HC_2015_RIGHT_SIDEBAR); ?>
-        </ul>
-    </aside>
+    <?php get_template_part('partials/sidebar'); ?>
 
 </div>
 
 
-<?php get_footer(); ?>
+<?php
+
+get_template_part('partials/visual-footer');
+get_footer();
+
+?>

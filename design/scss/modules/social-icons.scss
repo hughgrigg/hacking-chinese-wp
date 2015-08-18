@@ -1,0 +1,26 @@
+.social-icons {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.social-icon-item {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: auto;
+  padding: 0;
+  width: 18%;
+}
+
+.social-icon {
+  color: $brand-colour;
+  display: block;
+  font-size: 2.7em;
+  text-align: center;
+  text-decoration: none;
+
+  &:visited {
+    color: $brand-colour;
+  }
+}

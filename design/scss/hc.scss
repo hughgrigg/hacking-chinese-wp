@@ -10,6 +10,7 @@ Text Domain: hackingchinese
 
 @import 'config/mixins',
 'config/variables',
+'vendor/icomoon',
 'base/body',
 'base/a',
 'base/article',
@@ -33,4 +34,5 @@ Text Domain: hackingchinese
 'modules/entry-meta',
 'modules/post-list',
 'modules/pagination',
-'modules/wp-image';
+'modules/wp-image',
+'modules/social-icons';

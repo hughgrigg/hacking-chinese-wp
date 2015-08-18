@@ -1,23 +1,24 @@
-var
-  gulp       = require('gulp'),
-  sass       = require('gulp-sass'),
-  sourcemaps = require('gulp-sourcemaps'),
-  minifyCSS  = require('gulp-minify-css'),
-  autoprefix = require('gulp-autoprefixer'),
-  concat     = require('gulp-concat'),
-  addSrc     = require('gulp-add-src'),
-  insert     = require('gulp-insert'),
-  fs         = require('fs'),
+const gulp       = require('gulp');
+const sass       = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
+const minifyCSS  = require('gulp-minify-css');
+const autoprefix = require('gulp-autoprefixer');
+const concat     = require('gulp-concat');
+const addSrc     = require('gulp-add-src');
+const insert     = require('gulp-insert');
+const fs         = require('fs');
 
-  unzip      = require('gulp-unzip'),
-  save       = require('gulp-save'),
-  filter     = require('gulp-filter'),
-  replace    = require('gulp-replace'),
-  rename     = require('gulp-rename'),
+const unzip      = require('gulp-unzip');
+const save       = require('gulp-save');
+const filter     = require('gulp-filter');
+const replace    = require('gulp-replace');
+const rename     = require('gulp-rename');
 
-  zip        = require('gulp-zip'),
+const zip        = require('gulp-zip');
 
-  livereload = require('gulp-livereload');
+const livereload = require('gulp-livereload');
+
+const gitRev     = require('git-rev-sync');
 
 gulp.task('style', function() {
   var themeDescription = fs.readFileSync('./design/theme-description.css');
@@ -49,8 +50,9 @@ gulp.task('import', function() {
     .pipe(save('before-style-filter'))
     .pipe(filter('style.css'))
     .pipe(replace(/\[class\^="icon-"], \[class\*=" icon-"]/g, '.icon'))
-    .pipe(rename('icomoon.css'))
-    .pipe(gulp.dest('./import/'))
+    .pipe(replace(/(\t|    )/g, '  '))
+    .pipe(rename('icomoon.scss'))
+    .pipe(gulp.dest('./design/scss/vendor/'))
     .pipe(save.restore('before-style-filter'))
     .pipe(filter('fonts/*.*'))
     .pipe(gulp.dest('./wp-content/themes/hc-2015/'));
@@ -58,7 +60,7 @@ gulp.task('import', function() {
 
 gulp.task('export', ['style'], function() {
   return gulp.src('./wp-content/themes/**/*')
-    .pipe(zip('hc2015-wp-theme-build-' + new Date().toISOString() + '.zip'))
+    .pipe(zip(['hc2015-wp-theme-revision', gitRev.short()].join('-') + '.zip'))
     .pipe(gulp.dest('./export/'));
 });
 
