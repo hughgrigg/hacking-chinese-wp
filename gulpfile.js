@@ -26,8 +26,8 @@ gulp.task('style', function() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(addSrc([
-      './bower_components/pure/pure.css',
-      './bower_components/pure/grids-responsive.css',
+      './node_modules/purecss/build/pure.css',
+      './node_modules/purecss/build/grids-responsive.css',
       './import/*.css'
     ]))
     .pipe(autoprefix())

@@ -18,7 +18,6 @@ sync/
 .idea/
 hc/
 node_modules/
-bower_components/
 import/
 style.css
 style.css.map

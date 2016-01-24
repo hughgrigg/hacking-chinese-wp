@@ -11,7 +11,7 @@
     "url": "git://github.com/hughgrigg/hacking-chinese-wp.git"
   },
   "author": "Hugh Grigg",
-  "license": "proprietary",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/hughgrigg/hacking-chinese-wp/issues"
   },
@@ -31,6 +31,7 @@
     "gulp-save": "~1.0.4",
     "gulp-sourcemaps": "~1.5.2",
     "gulp-unzip": "~0.1.3",
-    "gulp-zip": "~3.0.2"
+    "gulp-zip": "~3.0.2",
+    "purecss": "^0.6.0"
   }
 }
