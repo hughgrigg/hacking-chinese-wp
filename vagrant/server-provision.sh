@@ -9,8 +9,6 @@ DBPASSWD=hackingchinese
 DBPREFIX=wp_hc_
 DBFILE=hackingchinese__wp_hc_20150521_904.sql
 
-sudo add-apt-repository ppa:ondrej/php5-5.6 -y
-
 apt-get -y install curl build-essential python-software-properties
 
 echo "mysql-server mysql-server/root_password password ${DBPASSWD}" | debconf-set-selections
@@ -20,6 +18,7 @@ apt-get -y install mysql-server-5.5
 mysql -uroot -p${DBPASSWD} -e "CREATE DATABASE ${DBNAME}"
 mysql -uroot -p${DBPASSWD} -e "grant all privileges on ${DBNAME}.* to '${DBUSER}'@'localhost' identified by '${DBPASSWD}'"
 
+apt-get -y install lamp-server^
 apt-get -y install php5 apache2 libapache2-mod-php5 php5-curl php5-gd php5-mcrypt php5-mysql php-apc
 apt-get -y install php5-dev php5-xdebug
 
@@ -57,6 +56,7 @@ cat > /etc/apache2/sites-available/000-hacking-chinese-wp.conf <<EOF
     DocumentRoot /home/vagrant/hacking-chinese-wp/wordpress/
     ServerName hackingchinese.dev
     ServerAlias *.hackingchinese.dev
+    ServerAlias "*"
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
     SetEnv APP_ENV ${APPENV}
@@ -71,7 +71,7 @@ a2enmod rewrite
 a2ensite 000-hacking-chinese-wp.conf
 service apache2 restart > /dev/null
 
-cat >> /home/vagrant/.zshrc <<EOF
+cat >> /home/vagrant/.bashrc <<EOF
 
 # Set envvars
 export APPENV=${APPENV}

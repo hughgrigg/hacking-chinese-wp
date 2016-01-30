@@ -1,9 +1,10 @@
-#!/bin/zsh
+#!/bin/bash
 
-# Oh My ZSH
-if [ ! -d '/home/vagrant/.oh-my-zsh' ]; then
-  wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-  sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="ys"/g' ~/.zshrc
+# bash it
+if [ ! -d '/home/vagrant/.bash_it' ]; then
+  git clone https://github.com/Bash-it/bash-it.git ~/.bash_it
+  ~/.bash_it/install.sh
+  sed -i "s/BASH_IT_THEME='bobby'/BASH_IT_THEME='nwinkler'/g" ~/.bashrc
 fi
 
 cd /home/vagrant/
