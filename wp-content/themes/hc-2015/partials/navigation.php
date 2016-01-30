@@ -8,6 +8,11 @@
     </div>
 </a>
 
-<button class="menu-button pure-button">Menu</button>
-<?php wp_nav_menu(array('theme_location' => 'top-nav', 'menu_class' => 'top-menu')) ?>
-
+<button class="menu-button pure-button" id="menu-button">Menu</button>
+<div class="menu-collapse" id="menu-collapse">
+    <?php wp_nav_menu(array(
+        'theme_location' => 'top-nav',
+        'menu_class'     => 'top-menu',
+        'menu_id'        => 'top-nav-menu',
+    )) ?>
+</div>

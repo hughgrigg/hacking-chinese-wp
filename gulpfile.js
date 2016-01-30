@@ -1,24 +1,28 @@
-const gulp       = require('gulp');
-const sass       = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const minifyCSS  = require('gulp-minify-css');
-const autoprefix = require('gulp-autoprefixer');
-const concat     = require('gulp-concat');
-const addSrc     = require('gulp-add-src');
-const insert     = require('gulp-insert');
-const fs         = require('fs');
+var gulp       = require('gulp');
+var sass       = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
+var minifyCSS  = require('gulp-minify-css');
+var autoprefix = require('gulp-autoprefixer');
+var concat     = require('gulp-concat');
+var addSrc     = require('gulp-add-src');
+var insert     = require('gulp-insert');
+var fs         = require('fs');
 
-const unzip      = require('gulp-unzip');
-const save       = require('gulp-save');
-const filter     = require('gulp-filter');
-const replace    = require('gulp-replace');
-const rename     = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
-const zip        = require('gulp-zip');
+var unzip      = require('gulp-unzip');
+var save       = require('gulp-save');
+var filter     = require('gulp-filter');
+var replace    = require('gulp-replace');
+var rename     = require('gulp-rename');
 
-const livereload = require('gulp-livereload');
+var zip        = require('gulp-zip');
 
-const gitRev     = require('git-rev-sync');
+var livereload = require('gulp-livereload');
+
+var gitRev     = require('git-rev-sync');
+
+var themeDir = './wp-content/themes/hc-2015';
 
 gulp.task('style', function() {
   var themeDescription = fs.readFileSync('./design/theme-description.css');
@@ -30,7 +34,14 @@ gulp.task('style', function() {
       './node_modules/purecss/build/grids-responsive.css',
       './import/*.css'
     ]))
-    .pipe(autoprefix())
+    .pipe(autoprefix({
+      browsers: [
+        '> 1%',
+        'Firefox ESR',
+        'last 3 versions',
+        'last 3 ios_saf versions'
+      ]
+    }))
     .pipe(concat('style.css'))
     .pipe(minifyCSS({
       advanced:            true,
@@ -40,8 +51,17 @@ gulp.task('style', function() {
     }))
     .pipe(insert.prepend(themeDescription))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./wp-content/themes/hc-2015'))
+    .pipe(gulp.dest(themeDir))
     .pipe(livereload());
+});
+
+gulp.task('js', function() {
+  return gulp.src('./js/**/*.js')
+    .pipe(sourcemaps.init())
+    .pipe(concat('hc-2015.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write('maps/'))
+    .pipe(gulp.dest(themeDir + '/js/'));
 });
 
 gulp.task('import', function() {
@@ -55,10 +75,10 @@ gulp.task('import', function() {
     .pipe(gulp.dest('./design/scss/vendor/'))
     .pipe(save.restore('before-style-filter'))
     .pipe(filter('fonts/*.*'))
-    .pipe(gulp.dest('./wp-content/themes/hc-2015/'));
+    .pipe(gulp.dest(themeDir));
 });
 
-gulp.task('export', ['style'], function() {
+gulp.task('export', ['style', 'js'], function() {
   return gulp.src('./wp-content/themes/**/*')
     .pipe(zip(['hc2015-wp-theme-revision', gitRev.short()].join('-') + '.zip'))
     .pipe(gulp.dest('./export/'));

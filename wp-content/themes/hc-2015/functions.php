@@ -8,6 +8,14 @@ require __DIR__ . '/widgets/SocialIcons.php';
 
 function hc2015_scripts() {
     wp_enqueue_style('hc2015-style', get_stylesheet_uri());
+    wp_register_script(
+        'hc2015',
+        get_template_directory_uri() . '/js/hc-2015.js',
+        array(),
+        '1.0',
+        true
+    );
+    wp_enqueue_script('hc2015');
 }
 add_action('wp_enqueue_scripts', 'hc2015_scripts');
 

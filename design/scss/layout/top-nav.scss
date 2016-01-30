@@ -1,12 +1,18 @@
-.menu-top-nav-container {
+.menu-collapse {
   background: $border-colour;
+  display: block;
+  height: auto;
   max-height: 0;
   overflow: hidden;
   text-align: center;
   transition: max-height .5s ease;
 
   @include breakpoint(sm-up) {
-    max-height: 20em;
+    max-height: 1000px;
+  }
+
+  &[open] {
+    max-height: 1000px;
   }
 }
 
@@ -18,8 +24,9 @@
     display: none;
   }
 
-  &:focus + .menu-top-nav-container {
-    max-height: 20em;
+  &:focus + .menu-collapse,
+  &:active + .menu-collapse {
+    max-height: 1000px;
   }
 }
 
@@ -40,7 +47,7 @@ $nav-link-colour: lighten($text-colour, 15%);
   @include breakpoint(sm-up) {
     display: inline-block;
     font-size: .8em;
-    width: percentage(1/3.2);
+    width: percentage(1 / 3.2);
   }
 
   @include breakpoint(md-up) {
@@ -52,7 +59,7 @@ $nav-link-colour: lighten($text-colour, 15%);
   }
 
   @include breakpoint(xl) {
-    width: percentage(1/6.2);
+    width: percentage(1 / 6.2);
   }
 
   > a {
