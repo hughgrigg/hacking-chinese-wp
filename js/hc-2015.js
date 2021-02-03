@@ -6,9 +6,6 @@
 
   if (menuButton && menuContainer) {
     addEvent(menuButton, 'click', toggleMenu);
-    addEvent(menuButton, 'blur', function() {
-      menuContainer.removeAttribute('open');
-    });
   }
 
   /**
