@@ -6,9 +6,9 @@ Hacking Chinese WordPress Development
 The following commands will export the theme to a zip archive in the `export/` directory.
 
 ```bash
-sudo npm install -g gulp
-npm install
-gulp export
+nvm install
+yarn install
+yarn run gulp export
 ```
 
 ## Running the development server
