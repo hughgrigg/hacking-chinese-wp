@@ -22,7 +22,7 @@ class SocialIcons extends \WP_Widget
      * @param array $args
      * @param array $instance
      */
-    public function widget($args, $instance)
+    public function widget(array $args, array $instance)
     {
         echo $args['before_widget'];
 

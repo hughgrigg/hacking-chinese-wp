@@ -81,3 +81,19 @@ add_action('widgets_init', function(){
 
 // Enable featured images
 add_theme_support('post-thumbnails');
+
+// Custom login logo
+
+function wpb_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(https://www.hackingchinese.com/wp-content/uploads/2010/09/square-stamp-1000.png);
+        height:200px;
+        width:200px;
+        background-size: 200px 200px;
+        background-repeat: no-repeat;
+        padding-bottom: 10px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'wpb_login_logo' );
