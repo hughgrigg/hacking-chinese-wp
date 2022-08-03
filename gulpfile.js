@@ -1,31 +1,20 @@
-var gulp       = require('gulp');
-var sass       = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var minifyCSS  = require('gulp-minify-css');
-var autoprefix = require('gulp-autoprefixer');
-var concat     = require('gulp-concat');
-var addSrc     = require('gulp-add-src');
-var insert     = require('gulp-insert');
-var fs         = require('fs');
+const gulp       = require('gulp');
+const sass       = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
+const minifyCSS  = require('gulp-minify-css');
+const autoprefix = require('gulp-autoprefixer');
+const concat     = require('gulp-concat');
+const addSrc     = require('gulp-add-src');
+const insert     = require('gulp-insert');
+const fs         = require('fs');
+const uglify = require('gulp-uglify');
+const zip        = require('gulp-zip');
+const gitRev     = require('git-rev-sync');
 
-var uglify = require('gulp-uglify');
-
-var unzip      = require('gulp-unzip');
-var save       = require('gulp-save');
-var filter     = require('gulp-filter');
-var replace    = require('gulp-replace');
-var rename     = require('gulp-rename');
-
-var zip        = require('gulp-zip');
-
-var livereload = require('gulp-livereload');
-
-var gitRev     = require('git-rev-sync');
-
-var themeDir = './wp-content/themes/hc-2015';
+const themeDir = './wp-content/themes/hc-2015';
 
 gulp.task('style', function() {
-  var themeDescription = fs.readFileSync('./design/theme-description.css');
+  const themeDescription = fs.readFileSync('./design/theme-description.css');
   return gulp.src('./design/scss/hc.scss')
     .pipe(sourcemaps.init())
     .pipe(sass())
@@ -51,8 +40,7 @@ gulp.task('style', function() {
     }))
     .pipe(insert.prepend(themeDescription))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(themeDir))
-    .pipe(livereload());
+    .pipe(gulp.dest(themeDir));
 });
 
 gulp.task('js', function() {
@@ -64,27 +52,8 @@ gulp.task('js', function() {
     .pipe(gulp.dest(themeDir + '/js/'));
 });
 
-gulp.task('import', function() {
-  return gulp.src('./import/icomoon.zip')
-    .pipe(unzip())
-    .pipe(save('before-style-filter'))
-    .pipe(filter('style.css'))
-    .pipe(replace(/\[class\^="icon-"], \[class\*=" icon-"]/g, '.icon'))
-    .pipe(replace(/(\t|    )/g, '  '))
-    .pipe(rename('icomoon.scss'))
-    .pipe(gulp.dest('./design/scss/vendor/'))
-    .pipe(save.restore('before-style-filter'))
-    .pipe(filter('fonts/*.*'))
-    .pipe(gulp.dest(themeDir));
-});
-
-gulp.task('export', ['style', 'js'], function() {
+gulp.task('export', gulp.series(['style', 'js'], function() {
   return gulp.src('./wp-content/themes/**/*')
     .pipe(zip(['hc2015-wp-theme-revision', gitRev.short()].join('-') + '.zip'))
     .pipe(gulp.dest('./export/'));
-});
-
-gulp.task('watch', function() {
-  livereload.listen();
-  return gulp.watch('./design/scss/**/*.scss', ['style']);
-});
+}));
