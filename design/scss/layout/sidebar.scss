@@ -1,6 +1,9 @@
 .sidebar {
   @extend %layout;
 
+  margin-top: 0;
+  margin-bottom: 0;
+
   background: darken($border-colour, 5%);
 
   @include breakpoint(lg-up) {
