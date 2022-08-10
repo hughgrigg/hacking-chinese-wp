@@ -1,0 +1,20 @@
+name: Publish Release
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.16.0
+      - run: npm install
+      - run: ./node_modules/.bin/gulp style
+      - run: ./node_modules/.bin/gulp export
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: | 
+            export/*.zip
