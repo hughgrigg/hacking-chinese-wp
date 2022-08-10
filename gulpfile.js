@@ -48,9 +48,10 @@ gulp.task('js', function() {
 gulp.task('export', gulp.series(['style', 'js'], function() {
   return gulp.src('./wp-content/themes/**/*')
     .pipe(zip([
-        (new Date()).toISOString().slice(0,19),
-      'hc2015-wp-theme-revision',
-      gitRev.short()
+        'hc2015-wp-theme-revision',
+        gitRev.date().toISOString().slice(0,19),
+        gitRev.short(),
+        gitRev.tag(),
     ].join('-') + '.zip'))
     .pipe(gulp.dest('./export/'));
 }));
