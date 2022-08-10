@@ -30,5 +30,11 @@
     "gulp-zip": "^5.1.0",
     "purecss": "^2.1.0",
     "sass": "^1.54.0"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "Firefox ESR",
+    "last 3 versions",
+    "last 3 ios_saf versions"
+  ]
 }

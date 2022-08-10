@@ -8,7 +8,7 @@ The following commands will export the theme to a zip archive in the `export/` d
 ```bash
 nvm install
 npm install
-./node_modules/.bin/gulp gulp export
+./node_modules/.bin/gulp export
 ```
 
 ## Running the development server

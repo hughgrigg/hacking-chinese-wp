@@ -23,14 +23,7 @@ gulp.task('style', function() {
       './node_modules/purecss/build/grids-responsive.css',
       './import/*.css'
     ]))
-    .pipe(autoprefix({
-      browsers: [
-        '> 1%',
-        'Firefox ESR',
-        'last 3 versions',
-        'last 3 ios_saf versions'
-      ]
-    }))
+    .pipe(autoprefix())
     .pipe(concat('style.css'))
     .pipe(minifyCSS({
       advanced:            true,
@@ -54,6 +47,10 @@ gulp.task('js', function() {
 
 gulp.task('export', gulp.series(['style', 'js'], function() {
   return gulp.src('./wp-content/themes/**/*')
-    .pipe(zip(['hc2015-wp-theme-revision', gitRev.short()].join('-') + '.zip'))
+    .pipe(zip([
+        (new Date()).toISOString().slice(0,19),
+      'hc2015-wp-theme-revision',
+      gitRev.short()
+    ].join('-') + '.zip'))
     .pipe(gulp.dest('./export/'));
 }));
