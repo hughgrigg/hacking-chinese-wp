@@ -1,11 +1,11 @@
 (function() {
-  'use strict';
+  "use strict";
 
-  var menuButton = document.getElementById('menu-button');
-  var menuContainer = document.getElementById('menu-collapse');
+  const menuButton = document.getElementById("menu-button");
+  const menuContainer = document.getElementById("menu-collapse");
 
   if (menuButton && menuContainer) {
-    addEvent(menuButton, 'click', toggleMenu);
+    menuButton.addEventListener("click", toggleMenu);
   }
 
   /**
@@ -16,22 +16,9 @@
       return;
     }
 
-    if (menuContainer.hasAttribute('open')) {
-      return menuContainer.removeAttribute('open');
+    if (menuContainer.hasAttribute("open")) {
+      return menuContainer.removeAttribute("open");
     }
-    return menuContainer.setAttribute('open', 'true');
-  }
-
-  /**
-   * @param {HTMLElement} element
-   * @param {string} eventName
-   * @param {function} callback
-   * @returns {*}
-   */
-  function addEvent(element, eventName, callback){
-    if (element.attachEvent) {
-      return element.attachEvent('on'+eventName, callback);
-    }
-    return element.addEventListener(eventName, callback, false);
+    return menuContainer.setAttribute("open", "true");
   }
 }());

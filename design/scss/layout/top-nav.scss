@@ -30,6 +30,10 @@
   }
 }
 
+.menu-collapse[open] {
+  max-height: 1000px;
+}
+
 .top-menu {
   @extend %inline-list;
 
