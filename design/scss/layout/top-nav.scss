@@ -25,6 +25,12 @@
   }
 }
 
+#menu-button {
+  @include breakpoint(sm-up) {
+    display: none;
+  }
+}
+
 .top-menu {
   @extend %inline-list;
 
