@@ -23,15 +23,6 @@
   @include breakpoint(sm-up) {
     display: none;
   }
-
-  &:focus + .menu-collapse,
-  &:active + .menu-collapse {
-    max-height: 1000px;
-  }
-}
-
-.menu-collapse[open] {
-  max-height: 1000px;
 }
 
 .top-menu {

@@ -54,6 +54,8 @@
 }
 
 .site-titles {
+  text-decoration: none;
+
   @include breakpoint(sm) {
     padding: .9em 0 0 .9em;
   }
@@ -73,12 +75,14 @@
 
 .site-title {
   margin: auto;
+  text-decoration: none;
 }
 
 .site-subtitle {
   display: none;
   font-size: 1.5em;
   margin: auto;
+  text-decoration: none;
 
   @include breakpoint(sm-up) {
     display: block;
