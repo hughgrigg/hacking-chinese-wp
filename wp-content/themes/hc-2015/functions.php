@@ -73,6 +73,25 @@ register_sidebar(array(
     'before_title'  => '<h2 class="widget-title">',
     'after_title'   => "</h2>\n",
 ));
+function register_hc2015_post_footer_action() {
+	echo <<<HTML
+<footer class="footer">
+    <br><br>
+    <ul class="widgets footer-widgets">
+        <li class="widget_text widget footer-widget">
+            <div class="textwidget">
+                <p>
+                    <a href="https://kensiosoftware.co.uk/" title="Freelance Web Developer | Kensio Software">
+                        Web Development by Kensio Software
+                    </a>
+                </p>
+            </div>
+        </li>
+    </ul>
+</footer>
+HTML;
+}
+add_action( 'wp_footer', 'register_hc2015_post_footer_action' );
 
 // Register hc2015 widgets
 add_action('widgets_init', function(){
