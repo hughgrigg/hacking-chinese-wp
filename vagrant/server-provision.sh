@@ -43,7 +43,7 @@ chmod +w /etc/apache2/apache2.conf
 
 sed -i "s/AllowOverride None/AllowOverride All/g" /etc/apache2/apache2.conf
 
-sed -i "s/error_reporting = .*/error_reporting = 6133/" /etc/php/8.1/apache2/php.ini
+sed -i "s/error_reporting = .*/error_reporting = 341/" /etc/php/8.1/apache2/php.ini
 sed -i "s/display_errors = .*/display_errors = On/" /etc/php/8.1/apache2/php.ini
 sed -i "s/disable_functions = .*//" /etc/php/8.1/cli/php.ini
 
@@ -121,7 +121,7 @@ cat > /home/vagrant/hacking-chinese-wp/wordpress/wp-config.php <<EOF
 <?php
 ini_set('display_startup_errors',0);
 ini_set('display_errors',0);
-error_reporting(6133);
+error_reporting(341);
 define('WP_DEBUG', true);
 define('DB_NAME', '${DBNAME}');
 define('DB_USER', '${DBUSER}');
